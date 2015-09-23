@@ -1,2 +1,2 @@
-FROM ubuntu:14.04
+FROM ubuntu
 MAINTAINER Sky.Y.Chen <chenyanhasmail@gmail.com>

@@ -1,3 +1,3 @@
-FROM ubuntu:15.10
+FROM ubuntu-upstart
 MAINTAINER Sky.Y.Chen <chenyanhasmail@gmail.com>
 EXPOSE 9000

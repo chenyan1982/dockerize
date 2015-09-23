@@ -7,7 +7,7 @@ RUN apt-get install -yf \
 		scala \
 		git
 		
-RUN git clone --depth 1 https://github.com/dropbox/hackpad.git		
+#RUN git clone --depth 1 https://github.com/dropbox/hackpad.git		
 EXPOSE 9000
 CMD ["/bin/bash"]
 		

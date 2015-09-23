@@ -8,11 +8,11 @@ RUN apt-get install -yf \
 		git
 		
 RUN git clone --depth 1 https://github.com/dropbox/hackpad.git		
-   		
-RUN pwd		
+EXPOSE 9000   		
+CMD ["bin\bash"]	
 		
 #RUN mkdir /etc/hackpad
-#VOLUME /etc/hackpad/src
+#VOLUME /etc/hackpad/srcS
 #COPY bin/docker-entry-point.sh /etc/hackpad/
 #ENTRYPOINT ["/etc/hackpad/docker-entrypoint.sh"]
 #EXPOSE 9000

@@ -8,8 +8,7 @@ RUN apt-get install -yf \
 		git
 		
 RUN git clone --depth 1 https://github.com/dropbox/hackpad.git		
-EXPOSE 9000   		
-CMD ["/bin/bash"]	
+EXPOSE 9000
 		
 #RUN mkdir /etc/hackpad
 #VOLUME /etc/hackpad/srcS

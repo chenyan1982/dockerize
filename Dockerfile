@@ -11,6 +11,6 @@ RUN export uid=1000 gid=1000 && \
     chmod 0440 /etc/sudoers.d/developer && \
     chown ${uid}:${gid} -R /home/developer
 
-USER developer
-ENV HOME /home/developer
-CMD /usr/bin/firefox
+# USER developer
+# ENV HOME /home/developer
+# CMD /usr/bin/firefox

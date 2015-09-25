@@ -1,19 +1,19 @@
-FROM ubuntu:14.04
-
-RUN apt-get update
-
-# && apt-get install -y firefox
-# Replace 1000 with your user / group id
-# RUN export uid=1000 gid=1000 && \
-#    mkdir -p /home/developer && \
-#    echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
-#    echo "developer:x:${uid}:" >> /etc/group && \
-#    echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer && \
-#   chmod 0440 /etc/sudoers.d/developer && \
-#    chown ${uid}:${gid} -R /home/developer
-
-# USER developer
-# ENV HOME /home/developer
-# CMD /usr/bin/firefox
-EXPOSE 9000
-CMD ["/bin/bash"]
+FROM suchja/x11client:ubuntu MAINTAINER Jan Suchotzki <jan@suchotzki.de> USER root # Define which versions we need ENV WINE_MONO_VERSION 4.5.6 ENV WINE_GECKO_VERSION 2.36 # Install packages for building the image RUN apt-get update -y \
+	&& apt-get install -y --no-install-recommends \
+		curl \
+		unzip \
+		software-properties-common \
+	&& add-apt-repository ppa:ubuntu-wine/ppa
+# Install wine and related packages RUN dpkg --add-architecture i386 \
+	&& apt-get update -y \
+	&& apt-get install -y --no-install-recommends \
+		wine1.7 \
+		wine-gecko$WINE_GECKO_VERSION:i386 \
+		wine-gecko$WINE_GECKO_VERSION:amd64 \
+		wine-mono$WINE_MONO_VERSION \
+	&& rm -rf /var/lib/apt/lists/*
+# Use latest version of winetricks from github RUN curl -SL 'http://winetricks.org/winetricks' -o /usr/local/bin/winetricks \
+	&& chmod +x /usr/local/bin/winetricks
+# Wine really doesn't like to be run as root, so let's use a non-root user USER xclient ENV HOME /home/xclient ENV WINEPREFIX /home/xclient/.wine # Tell wine to behave like a 32-bit Windows. # https://wiki.archlinux.org/index.php/Wine#WINEARCH ENV WINEARCH win32
+# We have a development build of wine, which means tons of debug output. # Thus we should suppress it: https://www.winehq.org/docs/winedev-guide/dbg-control ENV WINEDEBUG -all # Use xclient's home dir as working dir WORKDIR /home/xclient
+RUN echo "alias winegui='wine explorer /desktop=DockerDesktop,1024x768'" > ~/.bash_aliases

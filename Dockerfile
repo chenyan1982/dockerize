@@ -15,5 +15,5 @@ RUN apt-get update
 # USER developer
 # ENV HOME /home/developer
 # CMD /usr/bin/firefox
-
-CMD /bin/bash
+EXPOSE 9000
+CMD ["/bin/bash"]

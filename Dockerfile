@@ -4,7 +4,7 @@ USER root
 RUN apt-get update -y \
 	&& apt-get upgrade -y
 
-# Install git
+# Install re-requisites
 RUN apt-get install -y --no-install-recommends \
         gcc \
         g++ \
@@ -14,4 +14,6 @@ RUN apt-get install -y --no-install-recommends \
 	
 # Download node source package and install  
 RUN git clone --recursive git://github.com/nodejs/node.git
+RUN cd node
+RUN ./configure && make && make install
 

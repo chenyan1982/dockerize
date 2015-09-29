@@ -6,6 +6,9 @@ RUN apt-get update -y \
 
 # Install git
 RUN apt-get install -y --no-install-recommends \
+        gcc \
+        g++ \
+        make \
 	git
 	
 # Download node source package and install  

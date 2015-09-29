@@ -27,7 +27,7 @@ ENV DOCKER_USER_PASSWORD=docker
 ENV ROOT_USER_PASSWORD=root
 
 # Hubot name	
-ENV HUBOT_NAME myhubot
+ENV HUBOT_NAME=myhubot
 
 
 ###############################################################################

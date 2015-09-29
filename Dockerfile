@@ -9,6 +9,7 @@ RUN apt-get install -y --no-install-recommends \
         gcc \
         g++ \
         make \
+        python \
 	git
 	
 # Download node source package and install  

@@ -10,7 +10,7 @@ RUN apt-get install -y --no-install-recommends \
 	git
 	
 # Download node source package and install  
-RUN git clone https://github.com/nodejs/node.git
+RUN git clone git://github.com/nodejs/node.git
 # Use latest version of winetricks from github RUN curl -SL 'http://winetricks.org/winetricks' -o /usr/local/bin/winetricks \
 # 	&& chmod +x /usr/local/bin/winetricks
 # Wine really doesn't like to be run as root, so let's use a non-root user USER xclient ENV HOME /home/xclient ENV WINEPREFIX /home/xclient/.wine # Tell wine to behave like a 32-bit Windows. # https://wiki.archlinux.org/index.php/Wine#WINEARCH ENV WINEARCH win32

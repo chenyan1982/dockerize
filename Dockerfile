@@ -1,15 +1,17 @@
 FROM ubuntu:14.04
 USER root 
 
-RUN apt-get update -y \
-	&& apt-get upgrade -y
+RUN apt-get update -yq \
+	&& apt-get upgrade -yq
 
 # Install re-requisites
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get install -yq --no-install-recommends \
         gcc \
         g++ \
         make \
         python \
+        remove \
+        adduser \
 	git
 	
 # Download node source package and install  
@@ -23,7 +25,14 @@ RUN make install
 WORKDIR /
 RUN npm install -g \
 	yo \
+	bower \
+	grunt-cli \
 	generator-hubot
+	
+# Add an xroot user because grunt doesn't like being root 
+RUN adduser --disabled-password --gecos "" xroot && \
+	echo "xroot ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+USER xroot
 
 # Create bot	
 ENV HUBOT_NAME myhubot

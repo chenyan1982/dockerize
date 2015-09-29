@@ -1,10 +1,42 @@
-FROM ubuntu:14.04
-USER root 
+###############################################################################
+#                           Header Documentation                              #
+###############################################################################
 
+
+###############################################################################
+#                                   Header                                    #
+############################################################################### 
+FROM ubuntu:14.04
+MAINTAINER Sky.Y.Chen <chenyanhasmail@gmail.com>
+
+###############################################################################
+#                            Environment Variables                            #
+###############################################################################
+# Tar files downloaded to tmp directory
+ENV TMP_DIR /tmp
+
+# Docker user to be created to intereact with container. This user is 
+# different than root
+ENV DOCKER_USER=docker
+
+# Password for the user defined by DOCKER_USER environment 
+# variable
+ENV DOCKER_USER_PASSWORD=docker
+
+# Password for the root 
+ENV ROOT_USER_PASSWORD=root
+
+# Hubot name	
+ENV HUBOT_NAME myhubot
+
+
+###############################################################################
+#                                Instructions                                 #
+###############################################################################
+# Install dependencies
 RUN apt-get update -yq \
 	&& apt-get upgrade -yq
 
-# Install re-requisites
 RUN apt-get install -yq --no-install-recommends \
         gcc \
         g++ \
@@ -20,27 +52,46 @@ RUN ./configure
 RUN make
 RUN make install
 
-# Install generator of hubot
+# Install following components using npm 
+# - Yeoman 
+# - Yeoman Hubot Generator 
+# - Bower 
+# - Grunt-Cli 
+# - Gulp 
 WORKDIR /
 RUN npm install -g \
 	yo \
 	bower \
 	grunt-cli \
+	gulp \
 	generator-hubot
 	
-# Add an xroot user because grunt doesn't like being root 
-RUN adduser --disabled-password --gecos "" xroot && \
-	echo "xroot ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-USER xroot
+# Set the root password 
+RUN echo "root:${ROOT_USER_PASSWORD}" | chpasswd	
+	
+# Create new user called define by DOCKER_USER environment variable 
+# which will be able to work with yeoman. 
+# Following issue prohibits using root with yo command 
+# https://github.com/yeoman/yeoman.io/issues/282 
+RUN adduser --disabled-password --shell /bin/bash --gecos '' ${DOCKER_USER}
 
-# Create bot	
-ENV HUBOT_NAME myhubot
-RUN mkdir $HUBOT_NAME
-WORKDIR /$HUBOT_NAME
+# Add user defined by DOCKER_USER environment variable to the sudoers list 
+RUN adduser ${DOCKER_USER} sudo
+
+# Set the work directory to home dir of the root 
+WORKDIR /home/${DOCKER_USER}
+
+# Set the user id 
+USER ${DOCKER_USER}
+
+RUN mkdir ${HUBOT_NAME}
+WORKDIR ${HUBOT_NAME}
 RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 	--name="yaya" \
 	--description="丫丫机器人" \
 	--adapter=QQ \
 	--default
 	
-	
+###############################################################################
+#                                    End                                      #
+############################################################################### 

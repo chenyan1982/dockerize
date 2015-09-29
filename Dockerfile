@@ -19,8 +19,13 @@ RUN ./configure
 RUN make
 RUN make install
 
-# Install Yeoman
+# Install generator of hubot
 WORKDIR /
-RUN npm install -g yo
+RUN npm install -g \
+	yo \
+	generator-hubot
 
-
+# Create bot	
+ENV HUBOT_NAME myhubot
+RUN mkdir HUBOT_NAME
+WORKDIR /HUBOT_NAME

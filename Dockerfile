@@ -19,3 +19,8 @@ RUN ./configure
 RUN make
 RUN make install
 
+# Install Yeoman
+WORKDIR /
+RUN npm install -g yo
+
+

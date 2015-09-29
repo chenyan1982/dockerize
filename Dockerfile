@@ -15,7 +15,7 @@ RUN apt-get install -y --no-install-recommends \
 # Download node source package and install  
 RUN git clone --recursive git://github.com/nodejs/node.git
 WORKDIR /node
-# RUN ./configure
-# RUN make
-# RUN make install
+RUN ./configure
+RUN make
+RUN make install
 

@@ -10,7 +10,6 @@ RUN apt-get install -yq --no-install-recommends \
         g++ \
         make \
         python \
-        remove \
         adduser \
 	git
 	

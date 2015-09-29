@@ -27,5 +27,5 @@ RUN npm install -g \
 
 # Create bot	
 ENV HUBOT_NAME myhubot
-RUN mkdir HUBOT_NAME
-WORKDIR /HUBOT_NAME
+RUN mkdir $HUBOT_NAME
+WORKDIR /$HUBOT_NAME

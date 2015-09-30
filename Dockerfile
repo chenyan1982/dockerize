@@ -91,6 +91,8 @@ RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 	--description="丫丫机器人" \
 	--adapter=QQ \
 	--default
+
+CMD ["bin/hubot"]
 	
 ###############################################################################
 #                                    End                                      #

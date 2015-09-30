@@ -86,11 +86,11 @@ USER ${DOCKER_USER}
 
 RUN mkdir ${HUBOT_NAME}
 WORKDIR ${HUBOT_NAME}
-# RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
-#	--name="yaya" \
-#	--description="丫丫机器人" \
-#	--adapter=QQ \
-#	--default
+RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
+	--name="yaya" \
+	--description="丫丫机器人" \
+	--adapter=campfire \
+	--default
 	
 ###############################################################################
 #                                    End                                      #

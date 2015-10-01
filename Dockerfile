@@ -84,7 +84,7 @@ WORKDIR /home/${DOCKER_USER}
 # Set the user id 
 USER ${DOCKER_USER}
 
-VOLUME /home/${DOCKER_USER}
+VOLUME /home
 
 RUN mkdir ${HUBOT_NAME}
 WORKDIR ${HUBOT_NAME}

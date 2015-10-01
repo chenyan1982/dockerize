@@ -91,6 +91,11 @@ RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 	--description="丫丫机器人" \
 	--adapter=campfire \
 	--default
+
+# Don't deploy on Heroku	
+RUN vi +/heroku external-scripts.json && :d && :wq
+
+ENTRYPOINT ["bin/hubot"]
 	
 ###############################################################################
 #                                    End                                      #

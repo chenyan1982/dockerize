@@ -93,9 +93,9 @@ RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 	--default
 
 # Don't deploy on Heroku	
-RUN vi +/heroku external-scripts.json && :d && :wq
+# RUN vi +/heroku external-scripts.json && :d && :wq
 
-ENTRYPOINT ["bin/hubot"]
+# ENTRYPOINT ["bin/hubot"]
 	
 ###############################################################################
 #                                    End                                      #

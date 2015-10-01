@@ -78,13 +78,15 @@ RUN adduser --disabled-password --shell /bin/bash --gecos '' ${DOCKER_USER}
 # Add user defined by DOCKER_USER environment variable to the sudoers list 
 RUN adduser ${DOCKER_USER} sudo
 
+VOLUME /home/${DOCKER_USER}
+
 # Set the work directory to home dir of the root 
 WORKDIR /home/${DOCKER_USER}
 
 # Set the user id 
 USER ${DOCKER_USER}
 
-VOLUME ${DOCKER_USER}
+
 
 RUN mkdir ${HUBOT_NAME}
 WORKDIR ${HUBOT_NAME}

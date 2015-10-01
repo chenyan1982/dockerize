@@ -84,6 +84,8 @@ WORKDIR /home/${DOCKER_USER}
 # Set the user id 
 USER ${DOCKER_USER}
 
+VOLUME ["/home/${DOCKER_USER}"]
+
 RUN mkdir ${HUBOT_NAME}
 WORKDIR ${HUBOT_NAME}
 RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \

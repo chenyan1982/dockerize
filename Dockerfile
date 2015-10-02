@@ -78,8 +78,6 @@ RUN adduser --disabled-password --shell /bin/bash --gecos '' ${DOCKER_USER}
 # Add user defined by DOCKER_USER environment variable to the sudoers list 
 RUN adduser ${DOCKER_USER} sudo
 
-VOLUME /home/${DOCKER_USER}
-
 # Set the work directory to home dir of the root 
 WORKDIR /home/${DOCKER_USER}
 
@@ -95,6 +93,8 @@ RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 	--description="丫丫机器人" \
 	--adapter=campfire \
 	--default
+	
+VOLUME /home/${DOCKER_USER}
 
 # Don't deploy on Heroku	
 # RUN vi +/heroku external-scripts.json && :d && :wq

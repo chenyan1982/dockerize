@@ -81,20 +81,18 @@ RUN adduser ${DOCKER_USER} sudo
 # Set the work directory to home dir of the root 
 WORKDIR /home/${DOCKER_USER}
 
+VOLUME /home/${DOCKER_USER}
+	
+COPY docker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Set the user id 
 USER ${DOCKER_USER}
 
-
-
-RUN mkdir ${HUBOT_NAME}
-WORKDIR ${HUBOT_NAME}
-RUN yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
-	--name="yaya" \
-	--description="丫丫机器人" \
-	--adapter=campfire \
-	--default
+# Generate a hubot
+ENTRYPOINT ["/entrypoint.sh"]
 	
-VOLUME /home/${DOCKER_USER}
+
 
 # Don't deploy on Heroku	
 # RUN vi +/heroku external-scripts.json && :d && :wq

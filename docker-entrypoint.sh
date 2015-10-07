@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [-d "./"$HUBOT_NAME] 
+if [ -d "./"$HUBOT_NAME] 
 then
 	cd $HUBOT_NAME  
 else

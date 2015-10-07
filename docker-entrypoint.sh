@@ -10,7 +10,7 @@ else
 		--name="iSoft" \
 		--description="坚力软件" \
 		--adapter=campfire \
-		--default
+		--defaults
 		
 	sed -i '/hubot-heroku-keepalive/d' ./external-scripts.json
 fi

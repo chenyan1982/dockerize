@@ -13,9 +13,10 @@ else
 		--defaults
 		
         cp -f /package.json package.json
+        npm install
 	# Don't deploy on Heroku		
 	# sed -i '/hubot-heroku-keepalive/d' ./external-scripts.json
 fi
 
-#bin/hubot -a qq
+bin/hubot -a qq
 

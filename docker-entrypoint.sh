@@ -13,4 +13,4 @@ echo $(ls)
 	
 sed -i '/hubot-heroku-keepalive/d' external-scripts.json
 
-/bin/hubot
+bin/hubot

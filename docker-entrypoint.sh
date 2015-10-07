@@ -13,7 +13,6 @@ else
 		--defaults
 		
         cp -f /external-scripts.json external-scripts.json
-        rm -f /external-scripts.json
 	# Don't deploy on Heroku		
 	# sed -i '/hubot-heroku-keepalive/d' ./external-scripts.json
 fi

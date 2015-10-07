@@ -7,5 +7,7 @@ yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 	--description="丫丫机器人" \
 	--adapter=campfire \
 	--default
+	
+# sed -i "//d" external-scripts.json
 
 /bin/hubot

@@ -12,6 +12,7 @@ else
 		--adapter=campfire \
 		--defaults
 		
+	# Don't deploy on Heroku		
 	# sed -i '/hubot-heroku-keepalive/d' ./external-scripts.json
 fi
 

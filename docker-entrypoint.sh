@@ -11,6 +11,6 @@ yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 echo $(pwd)
 echo $(ls)
 	
-sed -i "/hubot-heroku-keepalive/d" external-scripts.json
+sed -i '/hubot-heroku-keepalive/d' external-scripts.json
 
 /bin/hubot

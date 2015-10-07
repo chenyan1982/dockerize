@@ -90,9 +90,7 @@ RUN chmod +x /entrypoint.sh
 USER ${DOCKER_USER}
 
 # Generate a hubot
-#ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["sleep 100000"]
+ENTRYPOINT ["/entrypoint.sh"]
 	
 
 

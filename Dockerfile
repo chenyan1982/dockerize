@@ -90,7 +90,7 @@ RUN chmod +x /entrypoint.sh
 USER ${DOCKER_USER}
 
 # Generate a hubot
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["/bin/bash"]
 	

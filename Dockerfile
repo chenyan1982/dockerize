@@ -92,10 +92,6 @@ USER ${DOCKER_USER}
 # Generate a hubot
 ENTRYPOINT ["/entrypoint.sh"]
 
-# Don't deploy on Heroku	
-# RUN vi +/heroku external-scripts.json && :d && :wq
-
-# ENTRYPOINT ["bin/hubot"]
 	
 ###############################################################################
 #                                    End                                      #

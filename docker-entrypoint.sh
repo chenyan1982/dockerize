@@ -10,4 +10,4 @@ yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 	
 sed -i "/hubot-heroku-keepalive/d" ./external-scripts.json
 
-/bin/hubot
+./bin/hubot

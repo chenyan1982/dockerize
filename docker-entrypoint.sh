@@ -8,6 +8,6 @@ yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 	--adapter=campfire \
 	--default
 	
-sed -i "/hubot-heroku-keepalive/d" external-scripts.json
+sed -i "/hubot-heroku-keepalive/d" ./external-scripts.json
 
 /bin/hubot

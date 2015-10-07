@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [-d ./$(HUBOT_NAME)] 
+if [-d ./$HUBOT_NAME] 
 then
-	cd $(HUBOT_NAME)  
+	cd $HUBOT_NAME  
 else
-	mkdir $(HUBOT_NAME)
-	cd $(HUBOT_NAME)
+	mkdir $HUBOT_NAME
+	cd $HUBOT_NAME
 	yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 		--name="iSoft" \
 		--description="坚力软件" \

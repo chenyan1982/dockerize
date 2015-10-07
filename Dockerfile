@@ -6,7 +6,7 @@
 ###############################################################################
 #                                   Header                                    #
 ############################################################################### 
-FROM ubuntu:14.04
+FROM ubuntu-upstart
 MAINTAINER Sky.Y.Chen <chenyanhasmail@gmail.com>
 
 ###############################################################################
@@ -90,9 +90,10 @@ RUN chmod +x /entrypoint.sh
 USER ${DOCKER_USER}
 
 # Generate a hubot
-# ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["/bin/bash"]
+
 	
 
 

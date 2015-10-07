@@ -6,7 +6,7 @@ then
 else
 	mkdir $HUBOT_NAME
 	cd $HUBOT_NAME
-	yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
+	yes | yo hubot --owner="Sky.Y.Chen <chenyanhasmail@gmail.com>" \
 		--name="iSoft" \
 		--description="坚力软件" \
 		--adapter=campfire \

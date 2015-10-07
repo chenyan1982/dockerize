@@ -83,6 +83,9 @@ WORKDIR /home/${DOCKER_USER}
 
 VOLUME /home/${DOCKER_USER}
 	
+COPY external-scripts.json /external-scripts.json
+RUN chmod +x /external-scripts.json
+
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 

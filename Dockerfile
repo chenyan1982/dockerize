@@ -91,6 +91,8 @@ USER ${DOCKER_USER}
 
 # Generate a hubot
 ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["/bin/bash"]
 	
 
 

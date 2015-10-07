@@ -12,7 +12,7 @@ else
 		--adapter=campfire \
 		--defaults
 		
-	sed -i '/hubot-heroku-keepalive/d' ./external-scripts.json
+	# sed -i '/hubot-heroku-keepalive/d' ./external-scripts.json
 fi
 
 bin/hubot

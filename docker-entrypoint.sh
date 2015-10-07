@@ -18,5 +18,5 @@ else
 	# sed -i '/hubot-heroku-keepalive/d' ./external-scripts.json
 fi
 
-bin/hubot -a qq
+#bin/hubot -a qq
 

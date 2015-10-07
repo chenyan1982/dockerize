@@ -14,6 +14,9 @@ else
 		
         cp -f /package.json package.json
         npm install
+        export HUBOT_QQ_ID = 3060869034
+	export HUBOT_QQ_PASS = password01
+	export HUBOT_QQ_GROUP = "坚力软件"
 	# Don't deploy on Heroku		
 	# sed -i '/hubot-heroku-keepalive/d' ./external-scripts.json
 fi

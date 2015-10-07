@@ -13,4 +13,5 @@ sed -i '/hubot-heroku-keepalive/d' external-scripts.json
 echo $(pwd)
 echo $(ls)
 cd bin
+echo $(ls)
 hubot

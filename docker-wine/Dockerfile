@@ -1,4 +1,4 @@
-FROM suchja/x11client:latest
+FROM daocloud.io/sjdd0001/x11client:latest
 MAINTAINER Jan Suchotzki <jan@suchotzki.de>
 
 # Inspired by monokrome/wine

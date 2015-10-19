@@ -10,6 +10,9 @@ ADD noVNC /noVNC/
 ADD startup.sh /
 ADD supervisord.conf /
 
+RUN chmod +x /startup.sh
+RUN chmod +x /supervisord.conf
+
 EXPOSE 6080
 EXPOSE 5900
 EXPOSE 3000

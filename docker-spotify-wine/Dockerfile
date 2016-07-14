@@ -1,19 +1,28 @@
-# Run spotify windows app in a container with wine
-#
-# docker run --rm -it \
-#	-v /etc/localtime:/etc/localtime:ro \
-#	--cpuset-cpus 0 \
-#	-v /tmp/.X11-unix:/tmp/.X11-unix  \
-#	-e DISPLAY=unix$DISPLAY \
-#	--device /dev/snd:/dev/snd \
-#	--name spotify-wine \
-#	jess/spotify-wine bash
-#
-FROM jess/wine
-MAINTAINER Jessie Frazelle <jess@linux.com>
-
-ADD https://d1clcicqv97n4s.cloudfront.net/ctrl/SpotifySetup.exe /usr/src/SpotifySetup.exe
-
-RUN echo "wine /usr/src/SpotifySetup.exe" > /root/.bash_history
-
-CMD [ "bash" ]
+sqlscript:
+    image: jekkos/opensourcepos:sqlscript
+web:
+    image: jekkos/opensourcepos:master
+    links:
+        - mysql
+    ports:
+        - "80:80"
+    roles:
+        - global
+    volumes:
+        - /app/uploads
+    environment:
+        - MYSQL_USERNAME=admin
+        - MYSQL_PASSWORD=pointofsale
+        - MYSQL_DB_NAME=ospos
+        - MYSQL_HOST_NAME=mysql
+mysql:
+    image: mysql:5.6
+    environment:
+        - MYSQL_ROOT_PASSWORD=pointofsale
+        - MYSQL_DATABASE=ospos
+        - MYSQL_USER=admin
+        - MYSQL_PASSWORD=pointofsale
+    ports:
+        - 3306:3306
+    volumes_from:
+        - sqlscript
